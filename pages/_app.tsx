@@ -2,17 +2,12 @@ import '../styles/global.css'
 
 // redux
 import withRedux from 'next-redux-wrapper';
-import { Provider } from 'react-redux';
 import { createStore, compose, applyMiddleware } from 'redux';
 import reducer from '../reducers';
 import { composeWithDevTools } from 'redux-devtools-extension';
 
-const App = ({ Component, store }) => {
-  return (
-    <Provider store={store}>
-      <Component />
-    </Provider>
-  );
+const App = ({ Component, pageProps }) => {
+  return <Component {...pageProps} />;
 };
 
 const configureStore = (initialState, options) => {
